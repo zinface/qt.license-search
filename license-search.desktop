@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=License开源许可查询
+Comment=搜索开源许可信息
+Type=Application
+Exec=/usr/share/youwant/license-search/license-search
+Icon=/usr/share/youwant/license-search/icon/open_source_license.png
+Categories=Development
+Keywords=

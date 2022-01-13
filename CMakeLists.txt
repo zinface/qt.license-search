@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.5.1)
 
-project(template LANGUAGES CXX VERSION 0.0.1)
+project(license-search LANGUAGES CXX VERSION 0.0.1)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -36,3 +36,21 @@ target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Network
     ${NetworkRequest_LIBRARIES}
     ${LicenceInfoManage_LIBRARIES}
 )
+
+
+# 设置安装路径的前缀(默认为"/usr/local")
+set(CMAKE_INSTALL_PREFIX "/opt")
+
+# 设置执行 make install 时哪个目标应该被 install 到哪个位置
+install(TARGETS ${PROJECT_NAME} 
+    DESTINATION share/youwant/license-search) 
+
+install(FILES open_source_license.png
+    DESTINATION share/youwant/license-search/icon) 
+
+install(FILES license-search.desktop
+    DESTINATION share/applications)
+
+# package deb
+find_package(DebPackage PATHS ${CMAKE_SOURCE_DIR})
+add_package_descript(cmake/package-deb.descript)
