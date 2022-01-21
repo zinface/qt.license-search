@@ -5,10 +5,11 @@
 #include <QMainWindow>
 #include <QWidget>
 
+#include <LicenceInfoManage.h>
+
 QT_BEGIN_NAMESPACE
 class QHBoxLayout;
 class QVBoxLayout;
-class LicenceInfoManage;
 class QLabel;
 class QListWidget;
 QT_END_NAMESPACE
@@ -24,7 +25,7 @@ private:
     LicenceInfoManage *manage;
 
 private:
-    void setLicenceLabelRuleData(QLabel *label, QStringList list);
+    void setLicenceLabelRuleData(QLabel *label, QStringList list, LicenceInfoManage::RuleType type);
 
 
     QList<QWidget*> labels;

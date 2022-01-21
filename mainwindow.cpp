@@ -124,9 +124,9 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
         {
             if (currentText.contains(item->id) && currentText.contains(item->title)) {
                 licenceDescriptionLabel->setText(item->description);
-                setLicenceLabelRuleData(licencePermissionsLabel, item->permissions);
-                setLicenceLabelRuleData(licenceConditionsLabel, item->conditions);
-                setLicenceLabelRuleData(licenceLimitationsLabel, item->limitations);
+                setLicenceLabelRuleData(licencePermissionsLabel, item->permissions, LicenceInfoManage::RuleType::Permissions);
+                setLicenceLabelRuleData(licenceConditionsLabel, item->conditions, LicenceInfoManage::RuleType::Conditions);
+                setLicenceLabelRuleData(licenceLimitationsLabel, item->limitations, LicenceInfoManage::RuleType::Limitations);
                 if (item->how.length() > 0) {
                     licenceHowLabel->setText(item->how);
                     licenceHowLabel->parentWidget()->setHidden(false);
@@ -167,11 +167,21 @@ MainWindow::~MainWindow()
 	
 }
 
-void MainWindow::setLicenceLabelRuleData(QLabel *label, QStringList list) {
+void MainWindow::setLicenceLabelRuleData(QLabel *label, QStringList list, LicenceInfoManage::RuleType type) {
     QStringList _list;
     for (int i = 0; i < list.size(); i++) {
         QString str = list.at(i);
-        _list << (QString("%1.%2").arg(i+1).arg(manage->rules.value(str)));
+        switch (type) {
+            case LicenceInfoManage::RuleType::Permissions:
+                _list << (QString("%1.%2").arg(i+1).arg(manage->permissions_rules.value(str)));
+                break;
+            case LicenceInfoManage::RuleType::Conditions:
+                _list << (QString("%1.%2").arg(i+1).arg(manage->conditions_rules.value(str)));
+                break;
+            case LicenceInfoManage::RuleType::Limitations:
+                _list << (QString("%1.%2").arg(i+1).arg(manage->limitations_rules.value(str)));
+                break;
+        }
     }
     label->setText(_list.join("\n"));
     if (list.size() == 0) {

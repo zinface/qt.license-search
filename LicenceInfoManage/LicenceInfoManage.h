@@ -15,8 +15,17 @@ class LicenceInfoManage : public QObject
 public:
     explicit LicenceInfoManage(QObject *parent=nullptr);
 
+    enum RuleType {
+        Permissions,
+        Conditions,
+        Limitations,
+    };
+
     void reload();
-    QMap<QString, QString> rules;
+    // QMap<QString, QString> rules;
+    QMap<QString, QString> permissions_rules;
+    QMap<QString, QString> conditions_rules;
+    QMap<QString, QString> limitations_rules;
     QList<LicenceInfoObject*> licenseItems;
 
 signals:

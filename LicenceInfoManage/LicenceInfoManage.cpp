@@ -21,9 +21,9 @@ LicenceInfoManage::LicenceInfoManage(QObject *parent) : QObject(parent)
         QStringList conditionsKeys = conditionsRules.keys();
         QStringList limitationsKeys = limitationsRules.keys();
 
-        for (auto &key : permissionsKeys) rules.insert(key, permissionsRules.value(key, QString()).toString());
-        for (auto &key : conditionsKeys) rules.insert(key, conditionsRules.value(key, QString()).toString());
-        for (auto &key : limitationsKeys) rules.insert(key, limitationsRules.value(key, QString()).toString());
+        for (auto &key : permissionsKeys) permissions_rules.insert(key, permissionsRules.value(key, QString()).toString());
+        for (auto &key : conditionsKeys) conditions_rules.insert(key, conditionsRules.value(key, QString()).toString());
+        for (auto &key : limitationsKeys) limitations_rules.insert(key, limitationsRules.value(key, QString()).toString());
     });
 
     connect(request, &NetworkRequest::replyRequest, [=](const QString &content){
