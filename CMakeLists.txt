@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.5.1)
 
-project(license-search LANGUAGES CXX VERSION 0.0.1)
+project(license-search LANGUAGES CXX VERSION 0.2)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)

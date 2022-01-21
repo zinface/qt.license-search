@@ -14,7 +14,7 @@ void moveCenter(MainWindow &wm) {
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    a.setApplicationName("开源许可证查询工具 - v0.0");
+    a.setApplicationName("开源许可证查询工具 - v0.2");
     MainWindow wm;
     wm.show();
    
