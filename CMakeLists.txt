@@ -21,7 +21,7 @@ add_subdirectory(NetworkRequest)
 add_subdirectory(LicenceInfoManage)
 
 add_executable(${PROJECT_NAME} "main.cpp"
-    "mainwindow.cpp" "mainwindow.h" 
+    "mainwindow.cpp" "mainwindow.h" "mainwindow.ui" 
     ${QRC_SOURCES}
 )
 # target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Network)

@@ -14,6 +14,9 @@ class QLabel;
 class QListWidget;
 QT_END_NAMESPACE
 
+namespace Ui {
+    class MainWindow;
+}
 class MainWindow : public QWidget
 {
     Q_OBJECT
@@ -22,6 +25,7 @@ public:
     ~MainWindow();
 
 private:
+    Ui::MainWindow *ui;
     LicenceInfoManage *manage;
 
 private:
