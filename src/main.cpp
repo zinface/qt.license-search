@@ -5,10 +5,18 @@
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QMainWindow>
+#include <QScreen>
 
 void moveCenter(MainWindow &wm) {
-    QDesktopWidget *desktop = QApplication::desktop();
-    wm.move((desktop->width() - wm.width()) /2,(desktop->height() - wm.height()) /2);
+    QScreen *screen = QApplication::screenAt(QCursor::pos());
+
+
+    auto desktop = screen->geometry();
+    
+    auto afterX = (desktop.width() - wm.width())/ 2;
+    auto afterY = (desktop.height() - wm.height()) /2;
+    
+    wm.move(afterX + desktop.x(), afterY + desktop.y());
 }
 
 int main(int argc, char *argv[])
