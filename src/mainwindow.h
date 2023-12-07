@@ -5,7 +5,7 @@
 #include <QMainWindow>
 #include <QWidget>
 
-#include "LicenceInfoManage.h"
+#include "utils/LicenceInfoManage/LicenceInfoManage.h"
 
 QT_BEGIN_NAMESPACE
 class QHBoxLayout;

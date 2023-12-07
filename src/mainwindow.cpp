@@ -13,9 +13,9 @@
 #include <QVBoxLayout>
 #include <QTextEdit>
 #include <QListWidget>
-#include <LicenceInfoObject.h>
-#include <LicenceInfoManage.h>
-#include <NetworkRequest.h>
+#include <utils/LicenceInfoObject/LicenceInfoObject.h>
+#include <utils/LicenceInfoManage/LicenceInfoManage.h>
+#include <utils/NetworkRequest/NetworkRequest.h>
 #include <QScrollArea>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)

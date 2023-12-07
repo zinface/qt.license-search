@@ -8,21 +8,19 @@ include(cmake/SparkMacrosConfig.cmake)
 include(cmake/SparkFindLibraries.cmake)
 include(cmake/SparkFindQt5Config.cmake)
 # include(cmake/SparkFindQt6Config.cmake)
-include(cmake/SparkMacrosExtendConfig.cmake)
+# include(cmake/SparkMacrosExtendConfig.cmake)
 
 # 资源文件路径
 set(QRC_SOURCES "")
 
-spark_add_library_realpaths(
-    src/utils/NetworkRequest
-    src/utils/LicenceInfoObject+NetworkRequest
-    src/utils/LicenceInfoManage+LicenceInfoObject
-)
-
 spark_add_executable_path(${PROJECT_NAME} src
     ${QRC_SOURCES}
+
+    src/utils/NetworkRequest
+    src/utils/LicenceInfoObject
+    src/utils/LicenceInfoManage
 )
-target_link_LicenceInfoManage(${PROJECT_NAME})
+target_link_qt5(${PROJECT_NAME})
 
 include(cmake/SparkBuildGraphviz.cmake)
 
@@ -40,6 +38,6 @@ install(FILES assets/open_source_license.png
 install(FILES assets/license-search.desktop
     DESTINATION share/applications)
 
-# package deb
-find_package(DebPackage PATHS ${CMAKE_SOURCE_DIR})
-add_package_descript(cmake/package-deb.descript)
+# 注释行(使用方式)
+find_package(SparkDebPackage PATHS ${CMAKE_SOURCE_DIR})
+add_package_descript(cmake/spark-deb-package.descript)

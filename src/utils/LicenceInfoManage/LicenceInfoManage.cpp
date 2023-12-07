@@ -1,6 +1,6 @@
 #include "LicenceInfoManage.h"
-#include <LicenceInfoObject.h>
-#include "NetworkRequest.h"
+#include <utils/LicenceInfoObject/LicenceInfoObject.h>
+#include <utils/NetworkRequest/NetworkRequest.h>
 
 #include <QJsonDocument>
 #include <QJsonObject>
